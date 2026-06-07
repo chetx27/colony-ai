@@ -1,0 +1,19 @@
+{
+  "name": "colonyiq",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w packages/api\" \"npm run dev -w apps/customer-pwa\" \"npm run dev -w apps/agent-app\" \"npm run dev -w apps/ops-dashboard\"",
+    "build": "npm run build --workspaces",
+    "test": "npm run test --workspaces"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "typescript": "^5.3.3",
+    "vite-plugin-pwa": "^1.3.0"
+  }
+}

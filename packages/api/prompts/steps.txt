@@ -1,0 +1,30 @@
+You are an expert delivery router for Indian streets. Convert these extracted address entities and database matched landmarks into a structured list of turn-by-turn navigation steps.
+
+Extracted Entities:
+Landmarks: {{landmarks}}
+Floor Info: {{floor_info}}
+Gate Color: {{gate_color}}
+Final Identifier: {{final_identifier}}
+Raw Direction: {{raw_direction}}
+Original Language: {{language}}
+
+Database Landmarks matched near coordinates:
+{{db_landmarks}}
+
+Generate a list of turn-by-turn navigation steps. Output JSON in this exact structure:
+{
+  "steps": [
+    {
+      "step_number": number,
+      "instruction_english": string,
+      "instruction_local": string, // equivalent description translated to the original speaker language (detected language)
+      "landmark_id": string|null,  // matching id from the database landmarks list if available, or null
+      "landmark_type": "atm"|"temple"|"hospital"|"school"|"shop"|"road"|"building"|"other",
+      "action": "look_for"|"turn_left"|"turn_right"|"go_straight"|"stop"|"call_customer",
+      "verified": boolean,         // set to true if matching database landmark is verified, else false
+      "fallback": string|null      // helpful English fallback guidance if the agent cannot find the landmark (e.g. "Keep going straight past the corner")
+    }
+  ]
+}
+
+Return ONLY the JSON.

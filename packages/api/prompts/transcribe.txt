@@ -1,0 +1,3 @@
+Transcribe this audio exactly. Detect language (return BCP-47 code). The speaker is describing their home address or delivery location in an Indian city. 
+Output JSON: { "transcript": string, "language": string, "confidence": number }
+Return ONLY valid JSON. No other text.

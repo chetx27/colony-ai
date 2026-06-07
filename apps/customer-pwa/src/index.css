@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Inter', 'Outfit', system-ui, sans-serif;
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism Styles */
+.glass {
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.glass-brand {
+  background: rgba(67, 108, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(67, 108, 255, 0.25);
+}
+
+/* Animation utilities */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(67, 108, 255, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 20px rgba(67, 108, 255, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(67, 108, 255, 0);
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes wave-bounce {
+  0%, 100% {
+    transform: scaleY(0.3);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.wave-bar {
+  animation: wave-bounce 1.2s ease-in-out infinite;
+}
+
+/* Leaflet Map overrides for Dark Mode */
+.leaflet-container {
+  background: #0f172a !important;
+  width: 100%;
+  height: 100%;
+}
+
+.leaflet-tile {
+  filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+
+.leaflet-bar a {
+  background-color: #1e293b !important;
+  color: #fff !important;
+  border-bottom: 1px solid #334155 !important;
+}
+
+.leaflet-bar a:hover {
+  background-color: #334155 !important;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
